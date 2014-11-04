@@ -31,13 +31,6 @@ public class Magpie
  public String getResponse(String statement)
  {
   String response = "";
-  
-  if ((statement.trim()).length() <= 0)
-  {
-    response = "Say something please";
-  }
-  else
-  {
   if (statement.indexOf("no") >= 0)
   {
    response = "Why so negative?";
@@ -49,18 +42,9 @@ public class Magpie
   {
    response = "Tell me more about your family.";
   }
-  else if (statement.indexOf("dog") >= 0 || statement.indexOf("cat") >= 0)
-  {
-    response = "Tell me more about your pets.";
-  }
-  else if (statement.indexOf("Mr. Landgraf") >= 0 || statement.indexOf("Mr. Kiang") >= 0)
-  {
-    response = "He sounds like a good teacher";
-  }
   else
   {
    response = getRandomResponse();
-  }
   }
   return response;
  }
