@@ -55,7 +55,15 @@ public class Magpie
   }
   else if (statement.indexOf("Mr. Landgraf") >= 0 || statement.indexOf("Mr. Kiang") >= 0)
   {
-    response = "He sounds like a good teacher";
+    response = "He sounds like a good teacher.";
+  }
+  else if (statement.indexOf("Sport") >= 0 )
+  {
+    response = "Do you like any other sports?";
+  }
+  else if (statement.indexOf("Shit") >= 0)
+  {
+    response = "Thats a bad word you know.";
   }
   else
   {
