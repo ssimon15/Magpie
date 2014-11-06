@@ -49,23 +49,23 @@ public class Magpie
   {
    response = "Tell me more about your family.";
   }
-  else if (statement.indexOf("dog") >= 0 || statement.indexOf("cat") >= 0)
+  else if (findKeyword(statement, "dog") >= 0 || findKeyword(statement, "cat") >= 0)
   {
     response = "Tell me more about your pets.";
   }
-  else if (statement.indexOf("Mr. Landgraf") >= 0 || statement.indexOf("Mr. Kiang") >= 0)
+  else if (findKeyword(statement, "Mr. Landgraf") >= 0 || findKeyword(statement, "Mr. Kiang") >= 0)
   {
     response = "He sounds like a good teacher.";
   }
-  else if (statement.indexOf("sport") >= 0 )
+  else if (findKeyword(statement, "sport") >= 0 )
   {
     response = "Do you like any other sports?";
   }
-  else if (statement.indexOf("shit") >= 0)
+  else if (findKeyword(statement, "shit") >= 0)
   {
     response = "Thats a bad word you know.";
   }
-  else if (statement.indexOf("banana") >= 0)
+  else if (findKeyword(statement, "banana") >= 0)
   {
     response = "Did you know I like bananas?";
   }
