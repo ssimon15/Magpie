@@ -92,8 +92,6 @@ public class Magpie
    {
     response = transformYouMeStatement(statement);
    }
-   // Look for a two word (you <something> me)
-   // pattern
    else
    {
     int psn0 = findKeyword(statement, "I", 0);
