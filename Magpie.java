@@ -38,14 +38,14 @@ public class Magpie
   }
   else
   {
-  if (statement.indexOf("no") >= 0)
+  if (findKeyword(statement, "no") >= 0)
   {
    response = "Why so negative?";
   }
-  else if (statement.indexOf("mother") >= 0
-    || statement.indexOf("father") >= 0
-    || statement.indexOf("sister") >= 0
-    || statement.indexOf("brother") >= 0)
+  else if (findKeyword(statement, "mother") >= 0
+    || findKeyword(statement, "father") >= 0
+    || findKeyword(statement, "sister") >= 0
+    || findKeyword(statement, "brother") >= 0)
   {
    response = "Tell me more about your family.";
   }
@@ -57,13 +57,17 @@ public class Magpie
   {
     response = "He sounds like a good teacher.";
   }
-  else if (statement.indexOf("Sport") >= 0 )
+  else if (statement.indexOf("sport") >= 0 )
   {
     response = "Do you like any other sports?";
   }
-  else if (statement.indexOf("Shit") >= 0)
+  else if (statement.indexOf("shit") >= 0)
   {
     response = "Thats a bad word you know.";
+  }
+  else if (statement.indexOf("banana") >= 0)
+  {
+    response = "Did you know I like bananas?";
   }
   else
   {
@@ -72,6 +76,63 @@ public class Magpie
   }
   return response;
  }
+ 
+ private int findKeyword(String statement, String goal,
+   int startPos)
+ {
+  String phrase = statement.trim();
+  // The only change to incorporate the startPos is in
+  // the line below
+  int psn = phrase.toLowerCase().indexOf(
+    goal.toLowerCase(), startPos);
+
+  // Refinement--make sure the goal isn't part of a
+  // word
+  while (psn >= 0)
+  {
+   // Find the string of length 1 before and after
+   // the word
+   String before = " ", after = " ";
+   if (psn > 0)
+   {
+    before = phrase.substring(psn - 1, psn)
+      .toLowerCase();
+   }
+   if (psn + goal.length() < phrase.length())
+   {
+    after = phrase.substring(
+      psn + goal.length(),
+      psn + goal.length() + 1)
+      .toLowerCase();
+   }
+
+   // If before and after aren't letters, we've
+   // found the word
+   if (((before.compareTo("a") < 0) || (before
+     .compareTo("z") > 0)) // before is not a
+           // letter
+     && ((after.compareTo("a") < 0) || (after
+       .compareTo("z") > 0)))
+   {
+    return psn;
+   }
+
+   // The last position didn't work, so let's find
+   // the next, if there is one.
+   psn = phrase.indexOf(goal.toLowerCase(),
+     psn + 1);
+
+  }
+
+  return -1;
+ }
+ 
+ private int findKeyword(String statement, String goal)
+ {
+  return findKeyword(statement, goal, 0);
+ }
+
+
 
  /**
   * Pick a default response to use if nothing else fits.

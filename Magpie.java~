@@ -55,7 +55,19 @@ public class Magpie
   }
   else if (statement.indexOf("Mr. Landgraf") >= 0 || statement.indexOf("Mr. Kiang") >= 0)
   {
-    response = "He sounds like a good teacher";
+    response = "He sounds like a good teacher.";
+  }
+  else if (statement.indexOf("sport") >= 0 )
+  {
+    response = "Do you like any other sports?";
+  }
+  else if (statement.indexOf("shit") >= 0)
+  {
+    response = "Thats a bad word you know.";
+  }
+  else if (statement.indexOf("banana") >= 0)
+  {
+    response = "Did you know I like bananas?"
   }
   else
   {
@@ -71,7 +83,7 @@ public class Magpie
   */
  private String getRandomResponse()
  {
-  final int NUMBER_OF_RESPONSES = 4;
+  final int NUMBER_OF_RESPONSES = 6;
   double r = Math.random();
   int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
   String response = "";
@@ -91,6 +103,14 @@ public class Magpie
   else if (whichResponse == 3)
   {
    response = "You don't say.";
+  }
+  else if (whichResponse == 4)
+  {
+    response = "Ahhhhhh";
+  }
+  else if (whichResponse == 5)
+  {
+    response = "Elaborate";
   }
 
   return response;
