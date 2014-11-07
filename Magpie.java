@@ -263,6 +263,8 @@ private String transformIWantToStatement(String statement)
    "Ahhhhhhh",
    "Cool Story Breh",
    "Elaborate",
-   "Okay" 
+   "Okay",
+   "Sorry, come again?",
+   "I don't understand"
  };
 }
