@@ -9,7 +9,9 @@
  * This version uses a nested if to handle default responses.
  * @author Laurie White
  * @version April 2012
- */
+*/
+import java.util.Random;
+
 public class Magpie
 {
  /**
@@ -248,38 +250,19 @@ private String transformIWantToStatement(String statement)
   * Pick a default response to use if nothing else fits.
   * @return a non-committal string
   */
- private String getRandomResponse()
+ private String getRandomResponse ()
  {
-  final int NUMBER_OF_RESPONSES = 6;
-  double r = Math.random();
-  int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
-  String response = "";
-  
-  if (whichResponse == 0)
-  {
-   response = "Interesting, tell me more.";
-  }
-  else if (whichResponse == 1)
-  {
-   response = "Hmmm.";
-  }
-  else if (whichResponse == 2)
-  {
-   response = "Do you really think so?";
-  }
-  else if (whichResponse == 3)
-  {
-   response = "You don't say.";
-  }
-  else if (whichResponse == 4)
-  {
-    response = "Ahhhhhh";
-  }
-  else if (whichResponse == 5)
-  {
-    response = "Elaborate";
-  }
-
-  return response;
+  Random r = new Random();
+  return randomResponses [r.nextInt(randomResponses.length)];
  }
+ 
+ private String [] randomResponses = {"Interesting, tell me more",
+   "Hmmm.",
+   "Do you really think so?",
+   "You don't say.",
+   "Ahhhhhhh",
+   "Cool Story Breh",
+   "Elaborate",
+   "Okay" 
+ };
 }
